@@ -1,13 +1,16 @@
+import { useThree } from '@react-three/fiber'
+import useScene from '../../hooks/useScene'
 import Box from './components/Box'
+import Lights from './Lights'
 
 const Scene = () => {
+  const { camera } = useThree()
+  useScene({ camera })
+
   return (
     <>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-
-      <Box position={[-1.2, 0, 0]} />
-      <Box position={[1.2, 0, 0]} />
+      <Lights />
+      <Box position={[0, 0, 0]} />
     </>
   )
 }
