@@ -1,8 +1,9 @@
-import { Mesh, MeshBasicMaterial } from 'three'
+import { Color, Mesh } from 'three'
+import GodRayMaterial from '../../canvas/Scene/shaders/GodRayMaterial'
 import { ConeProps } from '../../types'
 import GUIController from '../gui'
 
-const debugCone = (coneMesh: Mesh, coneMat: MeshBasicMaterial, props: ConeProps, callback: (props: ConeProps) => void) => {
+const debugCone = (coneMesh: Mesh, coneMat: GodRayMaterial, props: ConeProps, callback: (props: ConeProps) => void) => {
   const FOLDER_NAME = 'Cone'
 
   const POSITION = {
@@ -23,7 +24,8 @@ const debugCone = (coneMesh: Mesh, coneMat: MeshBasicMaterial, props: ConeProps,
     step: 0.001
   }
 
-  GUIController.instance.addColor(coneMat, 'color', undefined, 'color', FOLDER_NAME)
+  GUIController.instance.addColor(coneMat.uniforms.uColor, 'value', undefined, 'mat.color', FOLDER_NAME)
+  GUIController.instance.addCheckBox(coneMat, 'transparent', 'mat.transparent', FOLDER_NAME)
 
   GUIController.instance.addNumericSlider(coneMesh.position, 'x', POSITION.min, POSITION.max, POSITION.step, 'pX', FOLDER_NAME)
   GUIController.instance.addNumericSlider(coneMesh.position, 'y', POSITION.min, POSITION.max, POSITION.step, 'pY', FOLDER_NAME)

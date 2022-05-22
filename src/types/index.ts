@@ -23,25 +23,3 @@ export type SceneProps = {
 export type ConeProps = {
   radius: number
 }
-
-/*
- * Debug
- */
-export type AddColorType = {
-  obj: object
-  propertyName: string
-  rgbScale?: number | undefined
-  displayName?: string | undefined
-  folderName?: string | undefined
-}
-
-export type AddNumericSliderType = {
-  obj: object
-  propertyName: string
-  min: number
-  max: number
-  step: number
-  displayName?: string | undefined
-  folderName?: string | undefined
-  open?: boolean
-}

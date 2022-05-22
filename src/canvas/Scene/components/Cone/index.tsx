@@ -2,6 +2,8 @@ import { Cone as ConeR3F } from '@react-three/drei'
 
 import useCone from '../../../../hooks/useCone'
 
+import '../../shaders/GodRayMaterial'
+
 /**
  * Cone light
  *
@@ -12,7 +14,7 @@ const Cone = () => {
 
   return (
     <ConeR3F ref={coneRef} position={[0, 10, 0]} rotation-x={0.2} args={[radius, 15, 256, 1, true]}>
-      <meshBasicMaterial ref={coneMatRef} color={'yellow'} />
+      <godRayMaterial ref={coneMatRef} transparent />
     </ConeR3F>
   )
 }
