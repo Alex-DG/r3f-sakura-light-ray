@@ -15,7 +15,7 @@ const Scene = () => {
       <Sakura />
       <Sparkles scale={[4, 3, 3]} position-y={-0.5} count={40} size={6} speed={0.5} />
       <Lights />
-      <Environment preset="sunset" />
+      <Environment preset="dawn" />
     </Suspense>
   )
 }
