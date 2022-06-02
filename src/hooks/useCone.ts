@@ -5,12 +5,12 @@ import { debugCone } from '../utils/debug/debugCone'
 import { ConeProps } from '../types'
 import GodRayMaterial from '../canvas/Scene/shaders/GodRayMaterial'
 
-const useCone = () => {
+const useCone = ({ radius }: { radius: number }) => {
   const coneRef = useRef<Mesh>(null!)
   const coneMatRef = useRef<GodRayMaterial>(null!)
 
   const [props, setProps] = useState<ConeProps>({
-    radius: 1.5
+    radius: radius
   })
 
   const updateCallback = useCallback((props: ConeProps) => {
@@ -21,7 +21,7 @@ const useCone = () => {
     debugCone(coneRef.current, coneMatRef.current, props, updateCallback)
   }, [])
 
-  return { coneRef, coneMatRef, radius: props.radius }
+  return { coneRef, coneMatRef, coneRadius: props.radius }
 }
 
 export default useCone
