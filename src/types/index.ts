@@ -1,4 +1,7 @@
 import { Camera as CameraR3F } from '@react-three/fiber'
+import { MutableRefObject } from 'react'
+import { BufferGeometry, Material, Mesh } from 'three'
+import GodRayMaterial from '../canvas/Scene/shaders/GodRayMaterial'
 
 /**
  * 3D World
@@ -22,4 +25,9 @@ export type SceneProps = {
 
 export type ConeProps = {
   radius: number
+}
+
+export type ConeMultipleRefs = {
+  coneRef: MutableRefObject<Mesh<BufferGeometry, Material | Material[]>>
+  coneMatRef: MutableRefObject<GodRayMaterial>
 }

@@ -1,21 +1,21 @@
-import { Environment, Html, Sparkles } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
+import { useThree } from '@react-three/fiber'
 import { Suspense } from 'react'
+
 import Sakura from './components/Sakura'
+import Stars from './components/Stars'
+
 import Lights from './Lights'
 
-const Loading = () => (
-  <Html>
-    <h1>Loading...</h1>
-  </Html>
-)
-
 const Scene = () => {
+  const { camera } = useThree()
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={null}>
       <Sakura />
-      <Sparkles scale={[4, 3, 3]} position-y={-0.5} count={40} size={6} speed={0.5} />
+      <Stars />
       <Lights />
-      <Environment preset="dawn" />
+
+      <OrbitControls {...{ camera }} enableZoom={false} />
     </Suspense>
   )
 }

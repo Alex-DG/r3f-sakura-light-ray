@@ -1,6 +1,7 @@
 import { Canvas as CanvasR3F } from '@react-three/fiber'
 
 import { sceneState } from '../store'
+
 import Scene from './Scene'
 
 const Canvas = () => {
