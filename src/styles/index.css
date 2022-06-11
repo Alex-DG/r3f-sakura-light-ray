@@ -13,7 +13,7 @@ body,
 }
 
 body {
-  background-color: #000000;
+  background-color: #140d1a;
   color: #fff;
 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -27,4 +27,11 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
+}
+
+a:hover {
+  color: hotpink;
+}
+button:hover {
+  color: hotpink;
 }

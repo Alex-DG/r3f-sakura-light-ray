@@ -9,11 +9,12 @@ const Stars = () => {
 
   useFrame(() => {
     const attrOpacity = sparklesRef.current!.geometry.getAttribute('opacity')
-    const opacity = [...Array(attrOpacity.count)].map(() => sceneState.lightProgress)
+    const lightProgress = Math.min(1, Math.max(0.15, sceneState.lightProgress)) // [0.15, 1]
+    const opacity = [...Array(attrOpacity.count)].map(() => lightProgress)
     sparklesRef.current!.geometry.setAttribute('opacity', new BufferAttribute(Float32Array.from(opacity), 1))
   })
 
-  return <Sparkles ref={sparklesRef} scale={[4, 3, 3]} position-y={-0.5} count={40} size={6} speed={0.5} />
+  return <Sparkles ref={sparklesRef} scale={[6, 4, 3]} position-y={-0.5} count={80} size={6} speed={0.25} />
 }
 
 export default Stars

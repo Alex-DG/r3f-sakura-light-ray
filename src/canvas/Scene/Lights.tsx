@@ -55,7 +55,7 @@ const Lights = () => {
       {/**
        * God Ray
        */}
-      <ConeR3F ref={coneRef} position={[0, 5, 0]} args={[radius, 15, 256, 1, true]}>
+      <ConeR3F ref={coneRef} position={[0, 5, 0.1]} args={[radius, 15, 256, 1, true]}>
         <godRayMaterial ref={coneMatRef} transparent />
       </ConeR3F>
     </group>

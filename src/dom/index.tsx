@@ -1,5 +1,13 @@
+import Credits from './components/Credits'
+import Instructions from './components/Instructions'
+
 const Dom = () => {
-  return <div></div>
+  return (
+    <>
+      <Instructions />
+      <Credits />
+    </>
+  )
 }
 
 export default Dom

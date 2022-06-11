@@ -1,9 +1,12 @@
 import { Color, Mesh } from 'three'
+import { isDebug } from '.'
 import GodRayMaterial from '../../canvas/Scene/shaders/GodRayMaterial'
 import { ConeProps } from '../../types'
 import GUIController from '../gui'
 
 const debugCone = (coneMesh: Mesh, coneMat: GodRayMaterial, props: ConeProps, callback: (props: ConeProps) => void) => {
+  if (!isDebug()) return null
+
   const FOLDER_NAME = 'Cone'
 
   const POSITION = {

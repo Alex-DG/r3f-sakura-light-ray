@@ -1,7 +1,10 @@
 import { Camera } from '@react-three/fiber'
+import { isDebug } from '.'
 import GUIController from '../gui'
 
 const debugCamera = (camera: Camera) => {
+  if (!isDebug()) return null
+
   const FOLDER_NAME = 'Camera'
   const POSITION = {
     min: -100,

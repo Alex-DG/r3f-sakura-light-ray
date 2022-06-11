@@ -1,7 +1,10 @@
 import { SpotLight } from 'three'
+import { isDebug } from '.'
 import GUIController from '../gui'
 
 const debugLights = (spot1?: SpotLight, spot2?: SpotLight) => {
+  if (!isDebug()) return null
+
   const SPOT1_FOLDER_NAME = 'SpotLight 1'
   const SPOT2_FOLDER_NAME = 'SpotLight 2'
 
