@@ -9,7 +9,7 @@ import { sceneState } from '../../store'
 
 import './shaders/GodRayMaterial'
 
-const MAX_RADIUS = 2.65
+const MAX_RADIUS = 2.5
 
 const Lights = () => {
   const { groupRef, spot1Ref, spot2Ref } = useLights()
@@ -22,7 +22,6 @@ const Lights = () => {
   let lightProgress = sceneState.lightProgress
   useFrame(() => {
     lightProgress = lerp(lightProgress, sceneState.lightProgress, 0.1)
-
     spot1Ref.current!.angle = (Math.PI / 12) * lightProgress
     spot2Ref.current!.intensity = 2 * Math.pow(lightProgress, 3)
     coneRef.current!.scale.set(lightProgress, 1, lightProgress)
