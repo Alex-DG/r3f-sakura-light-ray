@@ -6,7 +6,7 @@ export const getViewSize = (camera: PerspectiveCamera) => {
   return { width: height * camera.aspect, height }
 }
 
-export const scaleMeshToView = (mesh: THREE.Mesh, camera: PerspectiveCamera) => {
+export const scaleMeshToView = (mesh: THREE.Mesh, camera: PerspectiveCamera, offset?: { offsetW: number; offsetH: number }) => {
   const rect = document.querySelector('canvas')?.getBoundingClientRect()
   const viewSize = getViewSize(camera as PerspectiveCamera)
 
@@ -14,7 +14,7 @@ export const scaleMeshToView = (mesh: THREE.Mesh, camera: PerspectiveCamera) => 
     // Transform pixel units to camera's view units
     const widthViewUnit = (rect.width * viewSize.width) / window.innerWidth
     const heightViewUnit = (rect.height * viewSize.height) / window.innerHeight
-    mesh.scale.x = widthViewUnit
-    mesh.scale.y = heightViewUnit
+    mesh.scale.x = widthViewUnit + (offset?.offsetW || 0)
+    mesh.scale.y = heightViewUnit + (offset?.offsetH || 0)
   }
 }
