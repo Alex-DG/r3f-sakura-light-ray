@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 
 import { isDebug } from '../../utils/debug'
 
+import RagingSea from './components/RagingSea'
 import Sakura from './components/Sakura'
 import Stars from './components/Stars'
 
@@ -15,6 +16,7 @@ const Scene = () => {
     <Suspense fallback={null}>
       <Sakura />
       <Stars />
+      <RagingSea />
       <Lights />
 
       <OrbitControls {...{ camera }} enableZoom={false} enabled={isDebug()} />

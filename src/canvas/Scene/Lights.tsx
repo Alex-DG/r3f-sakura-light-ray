@@ -9,10 +9,10 @@ import { sceneState } from '../../store'
 
 import './shaders/GodRayMaterial'
 
-const MAX_RADIUS = 3.25
+const MAX_RADIUS = 2.65
 
 const Lights = () => {
-  const { spot1Ref, spot2Ref } = useLights()
+  const { groupRef, spot1Ref, spot2Ref } = useLights()
 
   const {
     coneRefs: { coneRef, coneMatRef },
@@ -29,7 +29,7 @@ const Lights = () => {
   })
 
   return (
-    <group>
+    <group ref={groupRef}>
       <spotLight
         ref={spot1Ref}
         intensity={8}
@@ -55,7 +55,7 @@ const Lights = () => {
       {/**
        * God Ray
        */}
-      <ConeR3F ref={coneRef} position={[0, 5, 0.1]} args={[radius, 15, 256, 1, true]}>
+      <ConeR3F ref={coneRef} position={[0, 5, 0.3]} args={[radius, 15, 256, 1, true]}>
         <godRayMaterial ref={coneMatRef} transparent />
       </ConeR3F>
     </group>

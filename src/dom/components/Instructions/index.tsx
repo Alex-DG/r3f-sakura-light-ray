@@ -33,13 +33,14 @@ const styles = {
 const Instructions = () => {
   const handleAdjust = () => {
     if (sceneState.lightProgress <= 0) {
-      while (sceneState.lightProgress <= 0.95) {
+      while (sceneState.lightProgress <= 0.99) {
         sceneState.lightProgress = lerp(sceneState.lightProgress, 1, 0.1)
       }
     } else {
       while (sceneState.lightProgress > 0) {
-        sceneState.lightProgress = lerp(sceneState.lightProgress, -1, 0.2)
+        sceneState.lightProgress = lerp(sceneState.lightProgress, -1, 0.5)
       }
+      sceneState.lightProgress = 0
     }
   }
 

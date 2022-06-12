@@ -15,6 +15,9 @@ const Canvas = () => {
         near: 0.01,
         far: 1000
       }}
+      gl={{
+        antialias: true
+      }}
       shadows>
       <Scene />
     </CanvasR3F>
