@@ -1,4 +1,4 @@
-# React-Three-Fiber: God Ray Effect
+# React-Three-Fiber: Sakura Light Ray
 
 - Typescript
 - React
