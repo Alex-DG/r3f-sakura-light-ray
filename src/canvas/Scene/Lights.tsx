@@ -20,6 +20,7 @@ const Lights = () => {
   } = useCone({ radius: MAX_RADIUS })
 
   let lightProgress = sceneState.lightProgress
+
   useFrame(() => {
     lightProgress = lerp(lightProgress, sceneState.lightProgress, 0.1)
     spot1Ref.current!.angle = (Math.PI / 12) * lightProgress

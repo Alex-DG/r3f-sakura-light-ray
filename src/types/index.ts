@@ -11,12 +11,17 @@ export type Camera = {
   position: [number, number, number]
   target: [number, number, number]
 }
+export type Loading = {
+  completed: boolean
+  progress: number
+}
 
 export type SceneState = {
+  cameraTargetProgress: THREE.Vector3
+  camera: Camera
   lightProgress: number
   hoveredFigure: boolean
-  camera: Camera
-  cameraTargetProgress: THREE.Vector3
+  debug: boolean
 }
 
 export type SceneProps = {
