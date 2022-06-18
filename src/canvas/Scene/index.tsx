@@ -15,14 +15,17 @@ const Scene = () => {
   const camera = useThree((state) => state.camera)
 
   return (
-    <Suspense fallback={<Loading />}>
-      <Sakura />
-      <Stars />
-      <RagingSea />
-      <Lights />
+    <>
+      <Suspense fallback={<Loading />}>
+        <Sakura />
+        <Stars />
+        <RagingSea />
+        <Lights />
 
-      <OrbitControls {...{ camera }} enableZoom={false} enabled={sceneState.debug} />
-    </Suspense>
+        <OrbitControls {...{ camera }} enableZoom={false} enabled={sceneState.debug} />
+        {/* <fog attach="fog" color="grey" near={1} far={35} /> */}
+      </Suspense>
+    </>
   )
 }
 
