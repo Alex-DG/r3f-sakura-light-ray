@@ -1,15 +1,22 @@
 import { useProgress } from '@react-three/drei'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { loadingState } from '../../../../store'
 
 const Loading = () => {
   const progress = useProgress((state) => state.progress)
 
-  useEffect(() => {
-    console.log('CANVAS:Loading >', { progress })
+  const loadingCompleted = useCallback(() => {
+    loadingState.completed = true
+  }, [])
+
+  const loadingInProgress = useCallback(() => {
     loadingState.progress = progress
-    if (progress >= 100) loadingState.completed = true
   }, [progress])
+
+  useEffect(() => {
+    loadingInProgress()
+    return () => loadingCompleted()
+  }, [loadingCompleted, loadingInProgress])
 
   return null
 }
