@@ -24,4 +24,7 @@ yarn preview
 
 ## Debug
 
-Access the debug panel: [https://sakura-light-ray.vercel.app/?debug](https://sakura-light-ray.vercel.app/?debug)
+Access the debug panel: 
+
+- Dev:`https:/localhost:3000/?debug`
+- Production: [https://sakura-light-ray.vercel.app/?debug](https://sakura-light-ray.vercel.app/?debug)
