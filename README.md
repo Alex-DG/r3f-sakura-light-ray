@@ -21,3 +21,7 @@ yarn build
 # Build preview
 yarn preview
 ```
+
+## Debug
+
+Access the debug panel: [https://sakura-light-ray.vercel.app/?debug](https://sakura-light-ray.vercel.app/?debug)
