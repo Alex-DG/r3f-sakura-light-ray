@@ -1,15 +1,13 @@
 import { Group } from 'three'
 import { useRef } from 'react'
-import { Center } from '@react-three/drei'
-import { useLoader, useFrame } from '@react-three/fiber'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { Center, useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 
-import modelSrc from '../../../../assets/models/fantasy_sakura.glb'
+import modelSrc from '../../../../assets/models/sakura_tree_draco.glb'
 
 const Sakura = () => {
   const groupRef = useRef<Group>(null)
-
-  const model = useLoader(GLTFLoader, modelSrc) as any // TODO: fix type check GLTF | GLTF[]
+  const model = useGLTF(modelSrc) as any // TODO: fix type check GLTF | GLTF[]
 
   useFrame(({ clock }) => {
     if (groupRef?.current) {
