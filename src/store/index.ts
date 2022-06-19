@@ -3,9 +3,12 @@ import { proxy } from 'valtio'
 import { Loading, SceneState } from '../types'
 import { cameraSet, loading, debug, lightProgress, hoveredFigure } from './defaultStates'
 
+const { camera } = cameraSet
+const cameraTargetProgress = new Vector3(...camera.target)
+
 export const sceneState: SceneState = {
-  camera: cameraSet.camera,
-  cameraTargetProgress: new Vector3(...cameraSet.camera.target),
+  cameraTargetProgress,
+  camera,
   lightProgress,
   hoveredFigure,
   debug

@@ -4,6 +4,7 @@ import { css } from '@emotion/css'
 import { loadingState, sceneState } from '../../../store'
 import { useSnapshot } from 'valtio'
 import gsap from 'gsap'
+import Progress from './components/Progress'
 
 const styles = {
   container: css`
@@ -23,43 +24,22 @@ const styles = {
     align-items: center;
 
     opacity: 1;
-  `,
-  text: css`
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #fff;
-    animation-name: bounce;
-    animation-timing-function: ease-out;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-
-    @keyframes bounce {
-      0% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
   `
 }
 
 const Loading = () => {
   const loadingRef = useRef<HTMLDivElement | null>(null)
-  const { progress, completed } = useSnapshot(loadingState)
+  const { completed } = useSnapshot(loadingState)
 
   useEffect(() => {
     if (completed) {
       gsap.to(loadingRef.current, {
         duration: 1,
         opacity: 0,
-        delay: 1,
+        delay: 0.5,
         ease: 'power3.out',
         onStart: () => {
-          gsap.to(sceneState, { lightProgress: 1, delay: 0.2, duration: 1.5, ease: 'power3.out' })
+          gsap.to(sceneState, { lightProgress: 1, delay: 0.25, duration: 1.5, ease: 'power3.out' })
         },
         onComplete: () => {
           gsap.set(loadingRef.current, { display: 'none' })
@@ -70,7 +50,7 @@ const Loading = () => {
 
   return (
     <div ref={loadingRef} className={styles.container}>
-      <span className={styles.text}>{progress.toFixed(0)}%</span>
+      <Progress />
     </div>
   )
 }
