@@ -10,9 +10,11 @@ import Stars from './components/Stars'
 import Lights from './Lights'
 
 import { sceneState } from '../../store'
+import useBackground from '../../hooks/debugStyle'
 
 const Scene = () => {
   const camera = useThree((state) => state.camera)
+  // const backgroundRef = useBackground()
 
   return (
     <>
@@ -23,6 +25,8 @@ const Scene = () => {
         <Lights />
 
         <OrbitControls {...{ camera }} enableZoom={false} enabled={sceneState.debug} />
+
+        {/* <color ref={backgroundRef} attach="background" args={['#140d1a']} /> */}
         {/* <fog attach="fog" color="grey" near={1} far={35} /> */}
       </Suspense>
     </>
