@@ -15,6 +15,4 @@ const debug = isDebug()
 
 const lightProgress = 0
 
-const hoveredFigure = false
-
-export { cameraSet, loading, debug, hoveredFigure, lightProgress }
+export { cameraSet, loading, debug, lightProgress }

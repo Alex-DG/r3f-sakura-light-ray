@@ -20,7 +20,6 @@ export type SceneState = {
   cameraTargetProgress: THREE.Vector3
   camera: Camera
   lightProgress: number
-  hoveredFigure: boolean
   debug: boolean
 }
 

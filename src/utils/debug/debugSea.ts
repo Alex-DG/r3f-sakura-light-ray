@@ -4,7 +4,6 @@ import GUIController from '../gui'
 
 const debugSea = (seaMaterial: SeaMaterial) => {
   if (!isDebug()) return null
-  console.log({ seaMaterial, uniforms: seaMaterial.uniforms })
 
   const FOLDER_NAME = 'Sea'
 
