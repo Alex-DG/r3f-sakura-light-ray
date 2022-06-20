@@ -6,7 +6,7 @@
 - React-Three-Fiber
 - Shaders
 
-Inspired by [@Nemutas](https://twitter.com/focru_ino) live experiement [r3f-fake-godray](https://nemutas.github.io/r3f-fake-godrays/)
+Inspired by [@Nemutas](https://twitter.com/focru_ino) live experiment [r3f-fake-godray](https://nemutas.github.io/r3f-fake-godrays/)
 
 ## Setup
 
