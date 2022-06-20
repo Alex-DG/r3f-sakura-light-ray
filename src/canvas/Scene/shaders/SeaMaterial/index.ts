@@ -7,18 +7,18 @@ import fragmentShader from './fragment.glsl'
 const defaultUniforms = {
   time: 0.0,
   colors: {
-    surfaceColor: '#c1e4fe',
-    depthColor: '#0066b3',
-    colorOffset: 0.08,
-    colorMultiplier: 1.4
+    surfaceColor: '#b477c0',
+    depthColor: '#2949a3',
+    colorOffset: 0.435,
+    colorMultiplier: 4
   },
   bigWaves: {
-    bigWavesElevation: 0.8,
-    bigWavesFrequency: [0.2, 0.7],
-    bigWaveSpeed: 0.75
+    bigWavesElevation: 0.279,
+    bigWavesFrequency: [1.4, -0.6],
+    bigWaveSpeed: 0.4591
   },
   smallWaves: {
-    smallWavesElevation: 0.15,
+    smallWavesElevation: 0.162,
     smallWavesFrequency: 3,
     smallWavesSpeed: 0.2,
     smallIterations: 4
@@ -33,42 +33,26 @@ const { surfaceColor, depthColor, colorOffset, colorMultiplier } = defaultUnifor
 class SeaMaterial extends ShaderMaterial {
   constructor() {
     super({
-      transparent: true,
       uniforms: {
-        uTime: { value: 0.0 },
+        uTime: { value: time },
 
-        uBigWavesSpeed: { value: 0.75 },
-        uBigWavesElevation: { value: 0.2 },
-        uBigWavesFrequency: { value: new Vector2(4, 1.5) },
+        uBigWavesSpeed: { value: bigWaveSpeed },
+        uBigWavesElevation: { value: bigWavesElevation },
+        uBigWavesFrequency: { value: new Vector2(bigWavesFrequency[0], bigWavesFrequency[1]) },
 
-        uSmallWavesElevation: { value: 0.15 },
-        uSmallWavesFrequency: { value: 3 },
-        uSmallWavesSpeed: { value: 0.2 },
-        uSmallIterations: { value: 4 },
+        uSmallWavesElevation: { value: smallWavesElevation },
+        uSmallWavesFrequency: { value: smallWavesFrequency },
+        uSmallWavesSpeed: { value: smallWavesSpeed },
+        uSmallIterations: { value: smallIterations },
 
         uDepthColor: { value: new Color(depthColor) },
         uSurfaceColor: { value: new Color(surfaceColor) },
-        uColorOffset: { value: 0.08 },
-        uColorMultiplier: { value: 5 }
+        uColorOffset: { value: colorOffset },
+        uColorMultiplier: { value: colorMultiplier }
       },
-      // uniforms: {
-      //   uTime: { value: time },
-      //   uBigWavesElevation: { value: bigWavesElevation },
-      //   uBigWavesFrequency: { value: bigWavesFrequency },
-      //   uBigWavesSpeed: { value: bigWaveSpeed },
-
-      //   uSurfaceColor: { value: new Color(surfaceColor) },
-      //   uDepthColor: { value: new Color(depthColor) },
-      //   uColorOffset: { value: colorOffset },
-      //   uColorMultiplier: { value: colorMultiplier },
-
-      //   uSmallWavesElevation: { value: smallWavesElevation },
-      //   uSmallWavesFrequency: { value: smallWavesFrequency },
-      //   uSmallWavesSpeed: { value: smallWavesSpeed },
-      //   uSmallIterations: { value: smallIterations }
-      // },
       vertexShader,
-      fragmentShader
+      fragmentShader,
+      transparent: true
     })
   }
 

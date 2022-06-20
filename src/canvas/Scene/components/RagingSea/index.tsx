@@ -1,15 +1,14 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import { useCallback, useLayoutEffect, useEffect, useRef } from 'react'
-import { Mesh, PerspectiveCamera } from 'three'
+import { PerspectiveCamera } from 'three'
 import { scaleMeshToView } from '../../../../utils/view'
-import SeaMaterial from '../../shaders/SeaMaterial'
 
 import '../../shaders/SeaMaterial'
+import useSea from '../../../../hooks/useSea'
 
 const RagingSea = () => {
   const { camera } = useThree()
-  const seaRef = useRef<Mesh>(null!)
-  const seaMaterialRef = useRef<SeaMaterial>(null!)
+  const { seaRef, seaMaterialRef } = useSea()
 
   const updateSize = useCallback(() => {
     if (seaRef.current) scaleMeshToView(seaRef.current, camera as PerspectiveCamera, { offsetW: 0.7, offsetH: 0.7 })
