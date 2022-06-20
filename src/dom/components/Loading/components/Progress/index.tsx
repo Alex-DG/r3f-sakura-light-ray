@@ -51,7 +51,7 @@ const Progress = () => {
 
   return (
     <div className={styles.container}>
-      <span className={styles.text}>{'..:: Loading ::..'}</span>
+      <span className={styles.text}>{'Loading'}</span>
       <span className={styles.progress}>
         {progress > 0 &&
           `
