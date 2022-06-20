@@ -6,6 +6,8 @@
 - React-Three-Fiber
 - Shaders
 
+Inspired by [@Nemutas](https://twitter.com/focru_ino) live experiement [r3f-fake-godray](https://nemutas.github.io/r3f-fake-godrays/)
+
 ## Setup
 
 ```bash
@@ -24,7 +26,7 @@ yarn preview
 
 ## Debug
 
-Access the debug panel: 
+Access the debug panel:
 
 - Dev:`https:/localhost:3000/?debug`
 - Production: [https://sakura-light-ray.vercel.app/?debug](https://sakura-light-ray.vercel.app/?debug)
